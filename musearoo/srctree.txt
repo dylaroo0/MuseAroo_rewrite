@@ -1,0 +1,49 @@
+musearoo/
+├── core/                                # Never-changing utilities
+│   ├── file_handler.py                  # input validation
+│   ├── precision_timing_handler.py      # sub-beat timing alignment
+│   ├── context_integrator.py            # fuses analyzer outputs
+│   ├── midi_processor.py                # converts events → PrettyMIDI/MIDI
+│   └── logger_setup.py                  # centralized logging
+│
+├── drummaroo/                           # Drum engine (evolving)
+│   ├── algorithms/                      # nightly algorithm tweaks
+│   │   ├── groove_architect.py
+│   │   ├── polyrhythm_engine.py
+│   │   └── ghost_note_generator.py
+│   │
+│   ├── drummaroo_controls.py            # UI parameter definitions
+│   └── drummaroo.py                     # orchestrator, stable API
+│
+├── analyzers/                           # BrainAroo’s feature extractors
+│   ├── __init__.py
+│   ├── master_analyzer.py               # calls all sub-analyzers
+│   ├── tempo_analyzer.py                # BPM & swing detection
+│   ├── harmony_analyzer.py              # key & chord progression
+│   ├── melody_analyzer.py               # motifs & contours
+│   ├── rhythm_analyzer.py               # density & syncopation
+│   ├── timbre_analyzer.py               # spectral features
+│   ├── dynamics_analyzer.py             # loudness & transients
+│   ├── structure_analyzer.py            # sections & repeats
+│   └── style_analyzer.py                # genre, mood & energy
+│
+├── tests/                               # Unit & integration tests
+│   ├── core/
+│   │   ├── test_file_handler.py
+│   │   ├── test_timing_handler.py
+│   │   ├── test_context_integrator.py
+│   │   └── test_midi_processor.py
+│   │
+│   ├── algorithms/
+│   │   ├── test_groove_architect.py
+│   │   ├── test_polyrhythm_engine.py
+│   │   └── test_ghost_note_generator.py
+│   │
+│   └── analyzers/
+│       └── test_tempo_analyzer.py
+│
+├── scripts/                             # Quick run / smoke-test scripts
+│   └── test_tempo_pipeline.py
+│
+└── docs/
+    └── ANALYZERS.md                     # one-line summaries for each analyzer
