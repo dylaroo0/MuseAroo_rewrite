@@ -1,0 +1,61 @@
+{
+  "HarmonyRoo Generation Interface": {
+    "main_controls": {
+      "GENERATE": {
+        "action": "generate_version()",
+        "description": "Generate new version with current control settings",
+        "shortcut": "Spacebar or MIDI pad"
+      },
+      "QUICK_VARIATIONS": {
+        "action": "quick_generate_variations(3)",
+        "description": "Generate 3 variations with auto-adjusted controls",
+        "shortcut": "Shift+Space"
+      },
+      "COMPARE": {
+        "action": "compare_versions([v1_id, v2_id])",
+        "description": "A/B compare selected versions",
+        "shortcut": "C"
+      },
+      "RESTORE": {
+        "action": "apply_version(version_id)",
+        "description": "Restore controls from selected version",
+        "shortcut": "R"
+      }
+    },
+    "version_list": {
+      "displays": [
+        "Version name",
+        "Timestamp",
+        "Rating (1-5 stars)",
+        "Favorite status",
+        "Tags",
+        "Preview waveform"
+      ],
+      "actions": [
+        "Select for comparison",
+        "Rate (1-5 stars)",
+        "Toggle favorite",
+        "Add notes",
+        "Duplicate settings",
+        "Export"
+      ]
+    },
+    "workflow_example": {
+      "1": "Load input track",
+      "2": "Set initial controls (or use preset)",
+      "3": "Click GENERATE \u2192 creates 'Take 1'",
+      "4": "Adjust controls (e.g., more syncopation)",
+      "5": "Click GENERATE \u2192 creates 'Take 2'",
+      "6": "Continue experimenting...",
+      "7": "Compare favorites",
+      "8": "Export the best version"
+    },
+    "advanced_features": {
+      "version_branching": "Create branches from any version",
+      "undo_redo": "Full undo/redo for control changes",
+      "automation": "Record control movements between versions",
+      "batch_export": "Export all versions at once",
+      "cloud_save": "Save sessions to cloud for collaboration"
+    }
+  }
+}

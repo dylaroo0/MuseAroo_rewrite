@@ -1,0 +1,106 @@
+{
+  "HarmonyRoo Control Interface": {
+    "version": "1.0",
+    "total_controls": 30,
+    "categories": {
+      "Core Musical": [
+        "intensity",
+        "syncopation",
+        "complexity",
+        "density"
+      ],
+      "Harmonic": [
+        "harmonic_tension",
+        "chord_extensions",
+        "modal_interchange"
+      ],
+      "Rhythmic": [
+        "swing",
+        "subdivision",
+        "polyrhythm"
+      ],
+      "Interaction": [
+        "call_response",
+        "anticipation",
+        "imitation"
+      ],
+      "Humanization": [
+        "timing_humanize",
+        "velocity_humanize",
+        "micro_timing"
+      ],
+      "Spatial": [
+        "octave_range",
+        "register_spread",
+        "stereo_width"
+      ],
+      "Style": [
+        "jazz_influence",
+        "classical_influence",
+        "electronic_influence"
+      ],
+      "Dynamics": [
+        "dynamic_range",
+        "compression"
+      ],
+      "Variation": [
+        "variation_rate",
+        "repetition_balance"
+      ],
+      "Articulation": [
+        "note_length",
+        "accent_strength"
+      ],
+      "Effects": [
+        "glissando",
+        "ornaments"
+      ]
+    },
+    "presets": [
+      "subtle_accompaniment",
+      "jazz_combo",
+      "classical_counterpoint",
+      "electronic_groove",
+      "ambient_texture",
+      "virtuoso_solo"
+    ],
+    "macros": [
+      "energy",
+      "complexity",
+      "humanness",
+      "jazziness"
+    ],
+    "midi_mapping": {
+      "Intensity": 1,
+      "Syncopation": 2,
+      "Complexity": 3,
+      "Note Density": 4,
+      "Harmonic Tension": 5,
+      "Chord Extensions": 6,
+      "Modal Interchange": 7,
+      "Swing Amount": 8,
+      "Rhythmic Subdivision": 9,
+      "Polyrhythmic Elements": 10,
+      "Call & Response": 11,
+      "Anticipation": 12,
+      "Motivic Imitation": 13,
+      "Timing Humanization": 14,
+      "Velocity Humanization": 15,
+      "Micro-timing Push/Pull": 16,
+      "Octave Range": 17,
+      "Register Spread": 18,
+      "Stereo Width": 19,
+      "Jazz Influence": 20,
+      "Classical Influence": 21,
+      "Electronic Influence": 22,
+      "Dynamic Range": 23,
+      "Dynamic Compression": 24,
+      "Variation Rate": 25,
+      "Repetition vs Novelty": 26,
+      "Note Length": 27,
+      "Accent Strength": 28,
+      "Glissando/Portamento": 29,
+      "Ornaments & Grace Notes": 30
+    }
+  }
+}

@@ -1,0 +1,228 @@
+class AbletonDrummarooAdapter:
+    """Complete Ableton Live integration with full parameter mapping"""
+    
+    PARAMETER_MAP = {
+        # Groove Parameters (10)
+        'groove_intensity': {
+            'name': 'Groove Intensity', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Overall rhythmic feel intensity'
+        },
+        'pattern_complexity': {
+            'name': 'Pattern Complexity', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Complexity of drum patterns'
+        },
+        'swing_amount': {
+            'name': 'Swing Amount', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Swing feel (0=straight, 1=full swing)'
+        },
+        'shuffle_feel': {
+            'name': 'Shuffle Feel', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Shuffle/groove intensity'
+        },
+        'syncopation_level': {
+            'name': 'Syncopation', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Off-beat emphasis level'
+        },
+        'polyrhythm_amount': {
+            'name': 'Polyrhythm', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Complex rhythmic layering'
+        },
+        'humanization': {
+            'name': 'Humanization', 'type': 'knob', 'range': (0, 1), 'default': 0.7,
+            'description': 'Natural performance variation'
+        },
+        'timing_tightness': {
+            'name': 'Timing Tightness', 'type': 'knob', 'range': (0, 1), 'default': 0.8,
+            'description': 'Precision of timing (0=loose, 1=tight)'
+        },
+        'cross_rhythm_amount': {
+            'name': 'Cross Rhythm', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Cross-rhythmic patterns'
+        },
+        'rhythmic_displacement': {
+            'name': 'Rhythmic Displacement', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Rhythmic offset effects'
+        },
+        
+        # Instrument Density (5)
+        'kick_density': {
+            'name': 'Kick Density', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Kick drum frequency'
+        },
+        'snare_density': {
+            'name': 'Snare Density', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Snare drum frequency'
+        },
+        'hihat_density': {
+            'name': 'HiHat Density', 'type': 'knob', 'range': (0, 1), 'default': 0.6,
+            'description': 'Hi-hat frequency'
+        },
+        'cymbal_density': {
+            'name': 'Cymbal Density', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Crashes/rides frequency'
+        },
+        'percussion_density': {
+            'name': 'Perc Density', 'type': 'knob', 'range': (0, 1), 'default': 0.2,
+            'description': 'Additional percussion frequency'
+        },
+        
+        # Dynamics & Articulation (6)
+        'dynamic_range': {
+            'name': 'Dynamic Range', 'type': 'knob', 'range': (0, 1), 'default': 0.6,
+            'description': 'Velocity variation range'
+        },
+        'ghost_note_density': {
+            'name': 'Ghost Notes', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Soft subtle note frequency'
+        },
+        'accent_strength': {
+            'name': 'Accent Strength', 'type': 'knob', 'range': (0, 1), 'default': 0.6,
+            'description': 'Emphasized note intensity'
+        },
+        'velocity_variation': {
+            'name': 'Velocity Var', 'type': 'knob', 'range': (0, 1), 'default': 0.4,
+            'description': 'Natural velocity randomness'
+        },
+        'micro_timing_amount': {
+            'name': 'Micro Timing', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Subtle timing variations'
+        },
+        'hihat_openness': {
+            'name': 'HiHat Openness', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Open vs closed hihat balance'
+        },
+        
+        # Fills & Transitions (4)
+        'fill_frequency': {
+            'name': 'Fill Frequency', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'How often fills occur'
+        },
+        'fill_complexity': {
+            'name': 'Fill Complexity', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Complexity of drum fills'
+        },
+        'fill_length': {
+            'name': 'Fill Length', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Duration of fills'
+        },
+        'transition_smoothness': {
+            'name': 'Transition Smooth', 'type': 'knob', 'range': (0, 1), 'default': 0.7,
+            'description': 'Section transition smoothness'
+        },
+        
+        # Style Influences (8)
+        'rock_influence': {
+            'name': 'Rock Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Rock style characteristics'
+        },
+        'jazz_influence': {
+            'name': 'Jazz Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Swing/jazz feel'
+        },
+        'funk_influence': {
+            'name': 'Funk Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Funk/groove feel'
+        },
+        'latin_influence': {
+            'name': 'Latin Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Latin percussion patterns'
+        },
+        'electronic_influence': {
+            'name': 'Electronic Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Electronic drum patterns'
+        },
+        'metal_influence': {
+            'name': 'Metal Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Double-kick/blast beats'
+        },
+        'hiphop_influence': {
+            'name': 'HipHop Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Hip-hop/trap patterns'
+        },
+        'world_influence': {
+            'name': 'World Influence', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Ethnic percussion patterns'
+        },
+        
+        # Kit Settings (5)
+        'kick_variation': {
+            'name': 'Kick Variation', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Kick drum sound variation'
+        },
+        'snare_variation': {
+            'name': 'Snare Variation', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Snare drum sound variation'
+        },
+        'ride_vs_hihat': {
+            'name': 'Ride vs HiHat', 'type': 'knob', 'range': (0, 1), 'default': 0.2,
+            'description': 'Ride cymbal vs hihat balance'
+        },
+        'tom_usage': {
+            'name': 'Tom Usage', 'type': 'knob', 'range': (0, 1), 'default': 0.4,
+            'description': 'Tom drum frequency'
+        },
+        'percussion_variety': {
+            'name': 'Perc Variety', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Percussion variety'
+        },
+        
+        # Advanced Controls (7)
+        'random_seed': {
+            'name': 'Random Seed', 'type': 'knob', 'range': (0, 10000), 'default': 42,
+            'description': 'Random generation seed'
+        },
+        'generation_iterations': {
+            'name': 'Generation Iter', 'type': 'knob', 'range': (1, 10), 'default': 3,
+            'description': 'Generation iterations'
+        },
+        'complexity_variance': {
+            'name': 'Complexity Var', 'type': 'knob', 'range': (0, 1), 'default': 0.2,
+            'description': 'Pattern complexity variance'
+        },
+        'density_fluctuation': {
+            'name': 'Density Fluct', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Density variation'
+        },
+        'style_blend_weight': {
+            'name': 'Style Blend', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Style blending intensity'
+        },
+        'odd_time_tendency': {
+            'name': 'Odd Time Tendency', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Likelihood of odd meters'
+        },
+        'metric_modulation': {
+            'name': 'Metric Modulation', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Metric modulation effects'
+        },
+        
+        # Performance & Mix (6)
+        'limb_independence': {
+            'name': 'Limb Independence', 'type': 'knob', 'range': (0, 1), 'default': 0.7,
+            'description': 'Drummer limb independence'
+        },
+        'stamina_simulation': {
+            'name': 'Stamina Simulation', 'type': 'knob', 'range': (0, 1), 'default': 0.0,
+            'description': 'Realistic stamina limits'
+        },
+        'technique_precision': {
+            'name': 'Technique Precision', 'type': 'knob', 'range': (0, 1), 'default': 0.8,
+            'description': 'Drummer technique precision'
+        },
+        'room_presence': {
+            'name': 'Room Presence', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'Room ambience amount'
+        },
+        'compression_amount': {
+            'name': 'Compression', 'type': 'knob', 'range': (0, 1), 'default': 0.3,
+            'description': 'Dynamic compression amount'
+        },
+        'eq_brightness': {
+            'name': 'EQ Brightness', 'type': 'knob', 'range': (0, 1), 'default': 0.5,
+            'description': 'High-frequency emphasis'
+        },
+        'stereo_width': {
+            'name': 'Stereo Width', 'type': 'knob', 'range': (0, 1), 'default': 0.7,
+            'description': 'Stereo field width'
+        },
+    }
