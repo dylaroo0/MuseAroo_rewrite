@@ -6,6 +6,6 @@ app = FastAPI()
 def read_root():
     return {"message": "Welcome to MuseAroo!"}
 
-@app.get("/stdrummaroo_main.pyatus")
+@app.get("/status")
 def get_status():
     return {"status": "ok"}

@@ -15,7 +15,7 @@ from typing import Dict, List, Optional, Any
 from pathlib import Path
 from functools import wraps
 
-from utils.precision_timing_handler import PrecisionTimingHandler, TimingMetadata
+from .precision_timing_handler import PrecisionTimingHandler, TimingMetadata
 
 try:
     from plugin_registry import register_plugin
